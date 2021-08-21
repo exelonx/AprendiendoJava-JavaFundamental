@@ -5,16 +5,22 @@
  */
 package inventario;
 
-/**
- *
- * @author Kevin
- */
+//*************************************************************************************************
+//*************************************************************************************************
+//** Hecho por: Kevin Cubas, aka Exelon  ******* Proyecto: Aprendiendo Java       *****************     
+//***                                     ******* Fecha de creación: 21/08/2021    ****************							
+//**** Contacto: Kevincubas@unah.hn        ******* Última modificación: 21/08/2021  ***************   
+//*****           Kevin.otaku@hotmail.com   *******                                  **************			
+//******	   +504 33598469             *******                                  *************							
+//*************************************************************************************************
+//*************************************************************************************************
 public class Producto {
     //Declaraciones de campo de instancia
     private int numeroIdProducto;
     private String nombreProducto;
     private int cantidadProducto;
     private double precioProducto;
+    private boolean estatus = true;
     
     //Constructor predeterminado
     public Producto(){
@@ -31,6 +37,7 @@ public class Producto {
     public String getNombreProducto(){return nombreProducto;}
     public int getCantidadProducto(){return cantidadProducto;}
     public double getPrecioProducto(){return precioProducto;}
+    public boolean getEstatus(){return estatus;}
     
     //Setters
     public void setNumeroID(int numeroID){
@@ -45,14 +52,25 @@ public class Producto {
     public void setPrecioProducto(double precio){
         this.precioProducto = precio;
     }
+    public void setEstatus(boolean estatus){
+        this.estatus = estatus;
+    }
+    
+    //Metodo para calcular el valor del inventario actual del producto
+    public double getInventarioValor(){
+        return (double)(Math.round(precioProducto*cantidadProducto*100)/100d);
+    }
     
     //Método ToString
     public String toString(){
         String salida = "";
+        String estatusString = this.estatus == true ? "Activo" : "Descatalogado";
         salida = "ID Producto\t: "+numeroIdProducto
-                +"\nNombre Producto\t: "+ nombreProducto
+                +"\nNombre Producto\t: " + nombreProducto
                 +"\nCantidad\t: "+ cantidadProducto
-                +"\nPrecio\t\t: "+ precioProducto;
+                +"\nPrecio\t\t: "+ precioProducto
+                +"\nPrecio del stock: " + getInventarioValor()
+                +"\nEstatus\t\t: "+ estatusString;
         return salida;
     }
 }
