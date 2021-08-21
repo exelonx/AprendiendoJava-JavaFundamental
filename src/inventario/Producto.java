@@ -52,7 +52,7 @@ public class Producto {
         salida = "ID Producto\t: "+numeroIdProducto
                 +"\nNombre Producto\t: "+ nombreProducto
                 +"\nCantidad\t: "+ cantidadProducto
-                +"\nPrecio\t: "+ precioProducto;
+                +"\nPrecio\t\t: "+ precioProducto;
         return salida;
     }
 }
