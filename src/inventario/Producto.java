@@ -58,19 +58,19 @@ public class Producto {
     
     //Metodo para calcular el valor del inventario actual del producto
     public double getInventarioValor(){
-        return (double)(Math.round(precioProducto*cantidadProducto*100)/100d);
+        return (double)(precioProducto*cantidadProducto);
     }
     
     //Método ToString
     public String toString(){
         String salida = "";
         String estatusString = this.estatus == true ? "Activo" : "Descatalogado";
-        salida = "ID Producto\t: "+numeroIdProducto
+        salida = "\nID Producto\t: "+numeroIdProducto
                 +"\nNombre Producto\t: " + nombreProducto
                 +"\nCantidad\t: "+ cantidadProducto
                 +"\nPrecio\t\t: "+ precioProducto
                 +"\nPrecio del stock: " + getInventarioValor()
-                +"\nEstatus\t\t: "+ estatusString;
+                +"\nEstatus\t\t: "+ estatusString+"\n";
         return salida;
     }
 }
